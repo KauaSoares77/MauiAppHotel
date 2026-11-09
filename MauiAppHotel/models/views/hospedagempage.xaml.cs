@@ -1,4 +1,6 @@
-﻿using MauiAppHotel.Models;
+﻿using System;
+using System.Collections.Generic;
+using MauiAppHotel.Models;
 
 namespace MauiAppHotel.Views;
 
@@ -55,13 +57,26 @@ public partial class HospedagemPage : ContentPage
                 return;
             }
 
+            DateTime dataCheckIn = dtpck_checkin.Date ?? DateTime.Today;
+            DateTime dataCheckOut = dtpck_checkout.Date ?? DateTime.Today.AddDays(1);
+
+            if (dataCheckOut.Date <= dataCheckIn.Date)
+            {
+                await DisplayAlertAsync(
+                    "Datas inválidas",
+                    "O check-out deve ser depois do check-in.",
+                    "OK");
+
+                return;
+            }
+
             Hospedagem hospedagem = new()
             {
                 QuartoSelecionado = quarto,
                 QtdAdultos = Convert.ToInt32(stp_adultos.Value),
                 QtdCriancas = Convert.ToInt32(stp_criancas.Value),
-                DataCheckIn = dtpck_checkin.Date ?? DateTime.Today,
-                DataCheckOut = dtpck_checkout.Date ?? DateTime.Today.AddDays(1)
+                DataCheckIn = dataCheckIn,
+                DataCheckOut = dataCheckOut
             };
 
             await Navigation.PushAsync(new ResumoPage
