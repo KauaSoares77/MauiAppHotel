@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MauiAppHotel.Views.SobrePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Sobre"
+    BackgroundColor="#F4F9FA">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="16" HorizontalOptions="Fill">
+
+            <Label Text="🏨" FontSize="64" HorizontalOptions="Center" Margin="0,20,0,0" />
+            <Label Text="App Hotel" FontSize="28" FontAttributes="Bold"
+                   TextColor="#1E7886" HorizontalOptions="Center" />
+            <Label Text="Versão 1.0" TextColor="Gray" HorizontalOptions="Center" />
+
+            <Border BackgroundColor="White" Stroke="#36BDBD" StrokeThickness="1.5" Padding="16">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="12" />
+                </Border.StrokeShape>
+
+                <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto,Auto"
+                      ColumnSpacing="16" RowSpacing="12">
+                    <Label Text="Desenvolvedor" TextColor="Gray" />
+                    <Label Grid.Column="1" Text="SEU NOME AQUI" FontAttributes="Bold" />
+
+                    <Label Grid.Row="1" Text="Ano" TextColor="Gray" />
+                    <Label Grid.Row="1" Grid.Column="1" Text="2026" FontAttributes="Bold" />
+
+                    <Label Grid.Row="2" Text="Curso" TextColor="Gray" />
+                    <Label Grid.Row="2" Grid.Column="1" Text="Técnico em Desenvolvimento de Sistemas"
+                           FontAttributes="Bold" />
+
+                    <Label Grid.Row="3" Text="Tecnologia" TextColor="Gray" />
+                    <Label Grid.Row="3" Grid.Column="1" Text=".NET MAUI / C# / XAML"
+                           FontAttributes="Bold" />
+                </Grid>
+            </Border>
+
+            <Label Text="Aplicativo desenvolvido para fins didáticos, exercitando BindingContext, Picker, DatePicker e Stepper."
+                   HorizontalTextAlignment="Center"
+                   TextColor="Gray"
+                   FontSize="13" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

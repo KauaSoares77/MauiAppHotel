@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MauiAppHotel.Views.ResumoPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Resumo da reserva"
+    BackgroundColor="#F4F9FA">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="14">
+
+            <Label Text="✅ Reserva calculada" FontSize="22" FontAttributes="Bold" TextColor="#1E7886" />
+
+            <Border BackgroundColor="White" Stroke="#36BDBD" StrokeThickness="1.5" Padding="16">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="12" />
+                </Border.StrokeShape>
+
+                <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="12">
+                    <Label Text="Quarto" TextColor="Gray" />
+                    <Label Grid.Column="1" Text="{Binding QuartoSelecionado.Descricao}" FontAttributes="Bold" />
+
+                    <Label Grid.Row="1" Text="Check-in" TextColor="Gray" />
+                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding DataCheckIn, StringFormat='{0:dd/MM/yyyy}'}" FontAttributes="Bold" />
+
+                    <Label Grid.Row="2" Text="Check-out" TextColor="Gray" />
+                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding DataCheckOut, StringFormat='{0:dd/MM/yyyy}'}" FontAttributes="Bold" />
+
+                    <Label Grid.Row="3" Text="Adultos" TextColor="Gray" />
+                    <Label Grid.Row="3" Grid.Column="1" Text="{Binding QtdAdultos}" FontAttributes="Bold" />
+
+                    <Label Grid.Row="4" Text="Crianças" TextColor="Gray" />
+                    <Label Grid.Row="4" Grid.Column="1" Text="{Binding QtdCriancas}" FontAttributes="Bold" />
+
+                    <Label Grid.Row="5" Text="Estadia" TextColor="Gray" />
+                    <Label Grid.Row="5" Grid.Column="1" Text="{Binding Estadia, StringFormat='{0} diária(s)'}" FontAttributes="Bold" />
+                </Grid>
+            </Border>
+
+            <Border BackgroundColor="#1E7886" StrokeThickness="0" Padding="16">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="12" />
+                </Border.StrokeShape>
+                <VerticalStackLayout>
+                    <Label Text="Valor total" TextColor="White" />
+                    <Label Text="{Binding ValorTotal, StringFormat='{0:C}'}"
+                           TextColor="White" FontSize="30" FontAttributes="Bold" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Button Text="Voltar"
+                    BackgroundColor="#36BDBD"
+                    TextColor="White"
+                    CornerRadius="10"
+                    Clicked="Button_Clicked" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
